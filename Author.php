@@ -3,10 +3,12 @@ Class Author{
 
     private $name;
     private $firstName;
+    private $edit;
 
-    public function __construct($name = "Doe", $firstName = "John"){
+    public function __construct($name = "Doe", $firstName = "John", Editor $edit){
         $this->name = $name;
         $this->firstName = $firstName;
+        $this->$edition = $edit;
     }
 
     /**
@@ -50,8 +52,28 @@ Class Author{
         return $this;
     }
 
+    /**
+     * Get the value of edit
+     */ 
+    public function getEdit()
+    {
+        return $this->edit;
+    }
+
+    /**
+     * Set the value of edit
+     *
+     * @return  self
+     */ 
+    public function setEdition($edit)
+    {
+        $this->edit = $edit;
+
+        return $this;
+    }
+
     function __toString(){
-        return $this->firstName." ".$this->name;
+        return $this->firstName." ".$this->name. " édition : ".$this->edit;
     }
 }
 ?>
