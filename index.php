@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
 <?php
 
 // Pour inclure un fichier en PHP : require ou include . Require_once et include_once existent aussi.
@@ -5,8 +16,10 @@
 
 require 'Author.php';
 require 'Livre.php';
+require 'Editor.php';
 
-$a1 = new Author ('King', 'Stephen');
+$e1 = new Editor ('Simon & Schuster');
+$a1 = new Author ('King', 'Stephen', $e1);
 $l1 = new Livre ('ça', 1203, '1990', '20$', $a1);
 
 echo $l1;
@@ -24,3 +37,6 @@ echo $l1;
 //On affiche l'auteur avec sa maison d'édition
 //Faire un DOCTYPE pour la mise en forme
 ?>
+
+</body>
+</html>
