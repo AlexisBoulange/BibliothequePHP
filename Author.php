@@ -3,12 +3,10 @@ Class Author{
 
     private $name;
     private $firstName;
-    private $edit;
 
-    public function __construct($name = "Doe", $firstName = "John", Editor $edit){
+    public function __construct($name = "Doe", $firstName = "John"){
         $this->name = $name;
         $this->firstName = $firstName;
-        $this->$edition = $edit;
     }
 
     /**
@@ -52,28 +50,16 @@ Class Author{
         return $this;
     }
 
-    /**
-     * Get the value of edit
-     */ 
-    public function getEdit()
-    {
-        return $this->edit;
-    }
-
-    /**
-     * Set the value of edit
-     *
-     * @return  self
-     */ 
-    public function setEdition($edit)
-    {
-        $this->edit = $edit;
-
-        return $this;
+    public function bibliography($array, $author){
+        for($i=0 ; $i<count($array) ; $i++){
+            if ($array[$i]->getAuthor() == $author){
+                echo $array[$i]. "<br/>";
+            }
+        }
     }
 
     function __toString(){
-        return $this->firstName." ".$this->name. " édition : ".$this->edit;
+        return $this->firstName." ".$this->name;
     }
 }
 ?>
