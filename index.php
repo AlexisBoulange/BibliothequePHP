@@ -14,17 +14,25 @@
 // Pour inclure un fichier en PHP : require ou include . Require_once et include_once existent aussi.
 // include et require sont similaires mais l'include ne vous fera pas d'erreur fatale et affichera la page. Le require non.
 
+require 'Editor.php';
 require 'Author.php';
 require 'Livre.php';
-require 'Editor.php';
 
-$e1 = new Editor ('Simon & Schuster');
-$a1 = new Author ('King', 'Stephen', $e1);
-$l1 = new Livre ('ça', 1203, '1990', '20$', $a1);
+$a1 = new Author ('King', 'Stephen');
+$a2 = new Author ('Asimov', 'Isaac');
+$e1 = new Editor ('Simon et Schuster');
+$e2 = new Editor ('Hachette/Gallimard');
+$l1 = new Livre ('ça', 1203, '1990', '20$', $a1, $e1);
+$l2 = new Livre ('Shining', 304, '1977', '10$', $a1, $e1);
+$l3 = new Livre ('Misery', 191, '1987', '12$', $a1, $e1);
+$l4 = new Livre ('Fondation', 256, '1957', '15$', $a2, $e2);
 
 echo $l1;
+$authors = [$a1, $a2];
+$tabLivres = [$l1, $l2, $l3, $l4];
 
-
+$a1->bibliography($tabLivres, $a1);
+$e1->edition($tabLivres, $e1);
 
 // Un livre a un auteur et un auteur peut avoir plusieurs livres.
 // Les relations doivent être faites par des clés étrangères.
