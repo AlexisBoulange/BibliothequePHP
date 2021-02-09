@@ -6,13 +6,15 @@ class Livre{
     private $year;
     private $price;
     private $author;
+    private $edit;
 
-    public function __construct ($title=" ", $pages=" ", $year=" ", $price=" ", Author $author){
+    public function __construct ($title=" ", $pages=" ", $year=" ", $price=" ", Author $author, Editor $edit){
         $this->title = $title;
         $this->pages = $pages;
         $this->year = $year;
         $this->price = $price;
         $this->author = $author;
+        $this->edit = $edit;
     }
 
 
@@ -117,9 +119,35 @@ class Livre{
                 return $this;
         }
 
+        /**
+         * Get the value of edit
+         */ 
+        public function getEdit()
+        {
+                return $this->edit;
+        }
+
+        /**
+         * Set the value of edit
+         *
+         * @return  self
+         */ 
+        public function setEdit($edit)
+        {
+                $this->edit = $edit;
+
+                return $this;
+        }
+
+    
         function __toString(){
 
-            return $this->title." (".$this->year. ") : ".$this->pages ." pages / ".$this->price. "livre de : ".$this->author;
+            return $this->title." (".$this->year. ") : ".$this->pages ." pages / ".$this->price. "livre de : ".$this->author. " (édition : ".$this->edit. ")";
         }
+        // function getInfos(){
+        //     echo $this->author. " " .$this->title. " ".$this->getAuthor()->getEdit()->getName();
+
+        // }
+
 }
 ?>
